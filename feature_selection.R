@@ -30,11 +30,12 @@ print(final.boruta)
 #Finally selected features 
 getSelectedAttributes(final.boruta, withTentative = F)
 
+#Removing feature with zero variance 
+apply(training_set, 2, sd)
 training_set$CYL_12 = NULL
 test_set$CYL_12 = NULL 
 under$CYL_12 = NULL
 
-sapply(training_set, class)
 #apply PCA for reduction of variables to 2 
 library(caret)
 car.pca = prcomp(training_set[-64])
